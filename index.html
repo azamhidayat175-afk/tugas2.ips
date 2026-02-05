@@ -1,0 +1,490 @@
+ <!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembacaan Proklamasi Indonesia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Source+Sans+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-display {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    .font-body {
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+    }
+    
+    .gradient-hero {
+      background: linear-gradient(135deg, #DC2626 0%, #991B1B 50%, #7F1D1D 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .timeline-line {
+      background: linear-gradient(to bottom, #DC2626, #F59E0B);
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .section-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23DC2626' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .quote-mark {
+      font-size: 4rem;
+      line-height: 1;
+      color: #DC2626;
+      opacity: 0.3;
+    }
+    
+    .tab-active {
+      border-bottom: 3px solid #DC2626;
+      color: #DC2626;
+    }
+    
+    .proklamasi-text {
+      border-left: 4px solid #DC2626;
+      background: linear-gradient(to right, rgba(220, 38, 38, 0.05), transparent);
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body bg-stone-50 text-stone-800 overflow-auto">
+  <div id="app-wrapper" class="w-full h-full"><!-- Hero Section -->
+   <header class="gradient-hero text-white py-16 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/5"></div>
+    <div class="absolute inset-0 opacity-10">
+     <svg class="w-full h-full" viewbox="0 0 100 100" preserveaspectratio="none"><pattern id="heroPattern" width="10" height="10" patternunits="userSpaceOnUse">
+       <circle cx="1" cy="1" r="1" fill="white" />
+      </pattern> <rect width="100%" height="100%" fill="url(#heroPattern)" />
+     </svg>
+    </div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 fade-in">
+     <p class="text-sm md:text-base font-semibold mb-3 opacity-95 tracking-widest uppercase">Kelompok 4</p>
+     <div class="bg-white/15 backdrop-blur rounded-lg px-6 py-4 mb-6 max-w-2xl mx-auto">
+      <p class="text-xs md:text-sm font-semibold mb-3 opacity-90 text-white/80">Anggota Kelompok:</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs md:text-sm font-medium text-white/95">
+       <p>✓ Azam Hidayat</p>
+       <p>✓ Naufal Fathin N</p>
+       <p>✓ Danu Feri H</p>
+       <p>✓ Denis Kurniawan</p>
+       <p>✓ Avika Aprilliasari</p>
+       <p>✓ Presil Anggraini</p>
+       <p>✓ Deviana Lestari</p>
+       <p>✓ Cinta Dini S</p>
+      </div>
+     </div>
+     <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-2 rounded-full mb-6"><span class="text-2xl">🇮🇩</span> <span class="font-semibold">17 Agustus 1945</span>
+     </div>
+     <h1 id="main-title" class="font-display text-4xl md:text-5xl font-bold mb-4 leading-tight">Pembacaan Proklamasi Kemerdekaan Indonesia</h1>
+     <p id="hero-subtitle" class="text-xl opacity-90 max-w-2xl mx-auto">Momen bersejarah yang mengubah nasib bangsa Indonesia selamanya</p>
+    </div>
+   </header><!-- Navigation Tabs -->
+   <nav class="bg-white shadow-sm sticky top-0 z-20">
+    <div class="max-w-4xl mx-auto px-6">
+     <div class="flex gap-1 overflow-x-auto" id="nav-tabs"><button onclick="showSection('latar')" class="nav-tab tab-active px-4 py-4 font-semibold whitespace-nowrap transition-all hover:text-red-600"> 📜 Latar Belakang </button> <button onclick="showSection('peristiwa')" class="nav-tab px-4 py-4 font-semibold whitespace-nowrap transition-all hover:text-red-600"> 🎯 Peristiwa </button> <button onclick="showSection('tokoh')" class="nav-tab px-4 py-4 font-semibold whitespace-nowrap transition-all hover:text-red-600"> 👤 Tokoh </button> <button onclick="showSection('teks')" class="nav-tab px-4 py-4 font-semibold whitespace-nowrap transition-all hover:text-red-600"> 📝 Teks Proklamasi </button> <button onclick="showSection('makna')" class="nav-tab px-4 py-4 font-semibold whitespace-nowrap transition-all hover:text-red-600"> 💡 Makna </button>
+     </div>
+    </div>
+   </nav><!-- Main Content -->
+   <main class="max-w-4xl mx-auto px-6 py-12"><!-- Latar Belakang Section -->
+    <section id="latar" class="section-content fade-in">
+     <div class="flex items-center gap-3 mb-8"><span class="text-4xl">��</span>
+      <h2 class="font-display text-3xl font-bold text-stone-800">Latar Belakang</h2>
+     </div>
+     <div class="grid gap-6"><!-- Card 1 -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">����</span>
+        </div>
+        <div>
+         <h3 class="font-display text-xl font-semibold mb-2 text-stone-800">Kekalahan Jepang dalam Perang Dunia II</h3>
+         <p class="text-stone-600 leading-relaxed">Pada tanggal <strong>6 dan 9 Agustus 1945</strong>, Amerika Serikat menjatuhkan bom atom di Hiroshima dan Nagasaki. Hal ini memaksa Jepang menyerah tanpa syarat kepada Sekutu pada <strong>15 Agustus 1945</strong>, menciptakan kekosongan kekuasaan (vacuum of power) di Indonesia.</p>
+        </div>
+       </div>
+      </div><!-- Card 2 -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🔥</span>
+        </div>
+        <div>
+         <h3 class="font-display text-xl font-semibold mb-2 text-stone-800">Desakan Golongan Muda</h3>
+         <p class="text-stone-600 leading-relaxed">Para pemuda seperti <strong>Chaerul Saleh, Sukarni, dan Wikana</strong> mendesak agar proklamasi kemerdekaan segera dilaksanakan tanpa bergantung pada Jepang. Mereka khawatir kesempatan emas ini akan hilang jika menunggu terlalu lama.</p>
+        </div>
+       </div>
+      </div><!-- Card 3 -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🏠</span>
+        </div>
+        <div>
+         <h3 class="font-display text-xl font-semibold mb-2 text-stone-800">Peristiwa Rengasdengklok</h3>
+         <p class="text-stone-600 leading-relaxed">Pada <strong>16 Agustus 1945</strong>, para pemuda membawa Soekarno dan Hatta ke Rengasdengklok, Karawang untuk mengamankan mereka dari pengaruh Jepang dan mendesak percepatan proklamasi. Setelah negosiasi, mereka kembali ke Jakarta pada malam hari.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Peristiwa Section -->
+    <section id="peristiwa" class="section-content hidden">
+     <div class="flex items-center gap-3 mb-8"><span class="text-4xl">🎯</span>
+      <h2 class="font-display text-3xl font-bold text-stone-800">Kronologi Peristiwa</h2>
+     </div><!-- Timeline -->
+     <div class="relative">
+      <div class="absolute left-6 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
+      <div class="space-y-8"><!-- Timeline Item 1 -->
+       <div class="relative pl-16">
+        <div class="absolute left-4 w-5 h-5 bg-red-600 rounded-full border-4 border-white shadow-lg"></div>
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-stone-100">
+         <div class="text-sm font-semibold text-red-600 mb-1">
+          16 Agustus 1945 - Malam
+         </div>
+         <h3 class="font-display text-lg font-semibold mb-2">Perumusan Teks Proklamasi</h3>
+         <p class="text-stone-600">Di rumah <strong>Laksamana Maeda</strong> (Jl. Imam Bonjol No. 1), Soekarno, Hatta, dan Ahmad Soebardjo merumuskan teks proklamasi. Soekarno menulis konsep dengan tangan, dan teks tersebut disepakati oleh yang hadir.</p>
+        </div>
+       </div><!-- Timeline Item 2 -->
+       <div class="relative pl-16">
+        <div class="absolute left-4 w-5 h-5 bg-amber-500 rounded-full border-4 border-white shadow-lg"></div>
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-stone-100">
+         <div class="text-sm font-semibold text-amber-600 mb-1">
+          17 Agustus 1945 - Dini Hari
+         </div>
+         <h3 class="font-display text-lg font-semibold mb-2">Pengetikan Teks Proklamasi</h3>
+         <p class="text-stone-600"><strong>Sayuti Melik</strong> mengetik ulang teks proklamasi dengan beberapa perubahan: "tempoh" menjadi "tempo" dan "wakil-wakil bangsa Indonesia" menjadi "Atas nama bangsa Indonesia".</p>
+        </div>
+       </div><!-- Timeline Item 3 -->
+       <div class="relative pl-16">
+        <div class="absolute left-4 w-5 h-5 bg-green-500 rounded-full border-4 border-white shadow-lg"></div>
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-stone-100">
+         <div class="text-sm font-semibold text-green-600 mb-1">
+          17 Agustus 1945 - Pukul 10.00
+         </div>
+         <h3 class="font-display text-lg font-semibold mb-2">Pembacaan Proklamasi</h3>
+         <p class="text-stone-600">Di halaman rumah <strong>Jalan Pegangsaan Timur No. 56</strong> (kini Jl. Proklamasi), Soekarno dengan didampingi Hatta membacakan teks proklamasi. Bendera Merah Putih yang dijahit oleh <strong>Ibu Fatmawati</strong> dikibarkan.</p>
+        </div>
+       </div><!-- Timeline Item 4 -->
+       <div class="relative pl-16">
+        <div class="absolute left-4 w-5 h-5 bg-blue-500 rounded-full border-4 border-white shadow-lg"></div>
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-stone-100">
+         <div class="text-sm font-semibold text-blue-600 mb-1">
+          17 Agustus 1945 - Setelah Pembacaan
+         </div>
+         <h3 class="font-display text-lg font-semibold mb-2">Pengibaran Bendera</h3>
+         <p class="text-stone-600"><strong>S. Suhud dan Latief Hendraningrat</strong> mengibarkan bendera Merah Putih diiringi lagu <strong>Indonesia Raya</strong>. Berita kemerdekaan kemudian disebarkan melalui radio dan surat kabar ke seluruh Indonesia.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Tokoh Section -->
+    <section id="tokoh" class="section-content hidden">
+     <div class="flex items-center gap-3 mb-8"><span class="text-4xl">👤</span>
+      <h2 class="font-display text-3xl font-bold text-stone-800">Tokoh-Tokoh Penting</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-6"><!-- Soekarno -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="mb-4"><img src="https://i.imghippo.com/files/tBjS3543IDQ.jpg" alt="Ir. Soekarno" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Image unavailable';" class="w-full h-48 object-cover rounded-lg mb-4">
+       </div>
+       <div>
+        <h3 class="font-display text-xl font-bold text-stone-800">Ir. Soekarno</h3>
+        <p class="text-red-600 font-semibold mb-4">Proklamator &amp; Presiden Pertama RI</p>
+       </div>
+       <p class="text-stone-600 leading-relaxed">Membacakan teks proklamasi dan menjadi Presiden pertama Indonesia. Beliau dikenal sebagai orator ulung dan Bapak Bangsa Indonesia.</p>
+      </div><!-- Hatta -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="mb-4"><img src="https://i.imghippo.com/files/YvnP8518Pu.jpg" alt="Drs. Mohammad Hatta" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Image unavailable';" class="w-full h-48 object-cover rounded-lg mb-4">
+       </div>
+       <div>
+        <h3 class="font-display text-xl font-bold text-stone-800">Drs. Mohammad Hatta</h3>
+        <p class="text-amber-600 font-semibold mb-4">Proklamator &amp; Wakil Presiden Pertama RI</p>
+       </div>
+       <p class="text-stone-600 leading-relaxed">Mendampingi Soekarno saat pembacaan proklamasi dan ikut menandatangani teks proklamasi. Dikenal sebagai Bapak Koperasi Indonesia.</p>
+      </div><!-- Ahmad Soebardjo -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="mb-4"><img src="https://i.imghippo.com/files/onVi6224EOE.png" alt="Ahmad Soebardjo" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Image unavailable';" class="w-full h-48 object-cover rounded-lg mb-4">
+       </div>
+       <div>
+        <h3 class="font-display text-xl font-bold text-stone-800">Ahmad Soebardjo</h3>
+        <p class="text-blue-600 font-semibold mb-4">Perumus Teks Proklamasi</p>
+       </div>
+       <p class="text-stone-600 leading-relaxed">Ikut merumuskan teks proklamasi bersama Soekarno dan Hatta. Berperan sebagai penghubung antara golongan tua dan golongan muda.</p>
+      </div><!-- Fatmawati -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="mb-4"><img src="https://i.imghippo.com/files/FMJu3433rw.jpg" alt="Fatmawati" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Image unavailable';" class="w-full h-48 object-cover rounded-lg mb-4">
+       </div>
+       <div>
+        <h3 class="font-display text-xl font-bold text-stone-800">Fatmawati</h3>
+        <p class="text-pink-600 font-semibold mb-4">Penjahit Bendera Pusaka</p>
+       </div>
+       <p class="text-stone-600 leading-relaxed">Istri Soekarno yang menjahit Bendera Pusaka Merah Putih yang dikibarkan saat proklamasi kemerdekaan.</p>
+      </div><!-- Sayuti Melik -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="mb-4"><img src="https://i.imghippo.com/files/nIt5278rVI.jpg" alt="Sayuti Melik" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Image unavailable';" class="w-full h-48 object-cover rounded-lg mb-4">
+       </div>
+       <div>
+        <h3 class="font-display text-xl font-bold text-stone-800">Sayuti Melik</h3>
+        <p class="text-green-600 font-semibold mb-4">Pengetik Teks Proklamasi</p>
+       </div>
+       <p class="text-stone-600 leading-relaxed">Mengetik ulang teks proklamasi dari tulisan tangan Soekarno dan melakukan penyempurnaan ejaan.</p>
+      </div><!-- Latief Hendraningrat -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border border-stone-100">
+       <div class="mb-4"><img src="https://i.imghippo.com/files/Qtf2639AoY.jpg" alt="Latief Hendraningrat" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Image unavailable';" class="w-full h-48 object-cover rounded-lg mb-4">
+       </div>
+       <div>
+        <h3 class="font-display text-xl font-bold text-stone-800">Latief Hendraningrat</h3>
+        <p class="text-purple-600 font-semibold mb-4">Pengibar Bendera</p>
+       </div>
+       <p class="text-stone-600 leading-relaxed">Bersama S. Suhud, bertugas mengibarkan Bendera Merah Putih pada saat upacara proklamasi kemerdekaan.</p>
+      </div>
+     </div>
+    </section><!-- Teks Proklamasi Section -->
+    <section id="teks" class="section-content hidden">
+     <div class="flex items-center gap-3 mb-8"><span class="text-4xl">📝</span>
+      <h2 class="font-display text-3xl font-bold text-stone-800">Teks Proklamasi</h2>
+     </div>
+     <div class="bg-white rounded-2xl p-8 shadow-xl border border-stone-200 relative overflow-hidden">
+      <div class="absolute top-4 left-4 quote-mark font-display">
+       "
+      </div>
+      <div class="absolute bottom-4 right-4 quote-mark font-display rotate-180">
+       "
+      </div>
+      <div class="relative z-10 text-center">
+       <h3 class="font-display text-2xl font-bold text-red-700 mb-8 tracking-wider">PROKLAMASI</h3>
+       <div class="proklamasi-text py-6 px-8 rounded-lg mb-6">
+        <p class="text-lg text-stone-700 leading-relaxed mb-4">Kami bangsa Indonesia dengan ini menjatakan kemerdekaan Indonesia.</p>
+        <p class="text-lg text-stone-700 leading-relaxed">Hal-hal jang mengenai pemindahan kekoeasaan d.l.l., diselenggarakan dengan tjara saksama dan dalam tempo jang sesingkat-singkatnja.</p>
+       </div>
+       <div class="mt-8 pt-6 border-t border-stone-200">
+        <p class="text-stone-600 mb-4">Djakarta, hari 17, boelan 8, tahoen 05</p>
+        <p class="font-display text-xl font-semibold text-stone-800">Atas nama bangsa Indonesia</p>
+        <p class="font-display text-2xl font-bold text-red-700 mt-2">Soekarno - Hatta</p>
+       </div>
+      </div>
+     </div><!-- Penjelasan -->
+     <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="bg-amber-50 rounded-xl p-6 border border-amber-200">
+       <h4 class="font-display text-lg font-semibold text-amber-800 mb-3 flex items-center gap-2"><span>✍️</span> Teks Tulisan Tangan</h4>
+       <p class="text-amber-700 text-sm leading-relaxed">Teks asli ditulis tangan oleh Soekarno di rumah Laksamana Maeda. Menggunakan ejaan lama dengan kata "tempoh" dan ditandatangani "Wakil-wakil bangsa Indonesia".</p>
+      </div>
+      <div class="bg-blue-50 rounded-xl p-6 border border-blue-200">
+       <h4 class="font-display text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2"><span>⌨️</span> Teks Hasil Ketikan</h4>
+       <p class="text-blue-700 text-sm leading-relaxed">Sayuti Melik mengetik ulang dengan perubahan: "tempoh" → "tempo" dan "Wakil-wakil bangsa Indonesia" → "Atas nama bangsa Indonesia". Penulisan tahun "05" merujuk pada tahun Jepang 2605.</p>
+      </div>
+     </div>
+    </section><!-- Makna Section -->
+    <section id="makna" class="section-content hidden">
+     <div class="flex items-center gap-3 mb-8"><span class="text-4xl">💡</span>
+      <h2 class="font-display text-3xl font-bold text-stone-800">Makna Proklamasi</h2>
+     </div>
+     <div class="space-y-6"><!-- Makna 1 -->
+      <div class="bg-gradient-to-r from-red-50 to-red-100 rounded-2xl p-6 border-l-4 border-red-600">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white text-xl flex-shrink-0">
+         1
+        </div>
+        <div>
+         <h3 class="font-display text-xl font-semibold text-red-800 mb-2">Pernyataan Kemerdekaan</h3>
+         <p class="text-red-700 leading-relaxed">Proklamasi merupakan pernyataan resmi bahwa bangsa Indonesia telah merdeka dan berdaulat, bebas dari segala bentuk penjajahan.</p>
+        </div>
+       </div>
+      </div><!-- Makna 2 -->
+      <div class="bg-gradient-to-r from-amber-50 to-amber-100 rounded-2xl p-6 border-l-4 border-amber-600">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center text-white text-xl flex-shrink-0">
+         2
+        </div>
+        <div>
+         <h3 class="font-display text-xl font-semibold text-amber-800 mb-2">Lahirnya Negara Indonesia</h3>
+         <p class="text-amber-700 leading-relaxed">Proklamasi menandai lahirnya Negara Kesatuan Republik Indonesia sebagai negara yang berdaulat dengan wilayah, rakyat, dan pemerintahan sendiri.</p>
+        </div>
+       </div>
+      </div><!-- Makna 3 -->
+      <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-6 border-l-4 border-green-600">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white text-xl flex-shrink-0">
+         3
+        </div>
+        <div>
+         <h3 class="font-display text-xl font-semibold text-green-800 mb-2">Puncak Perjuangan</h3>
+         <p class="text-green-700 leading-relaxed">Proklamasi adalah puncak dari perjuangan panjang bangsa Indonesia melawan penjajahan yang telah berlangsung selama berabad-abad.</p>
+        </div>
+       </div>
+      </div><!-- Makna 4 -->
+      <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-6 border-l-4 border-blue-600">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl flex-shrink-0">
+         4
+        </div>
+        <div>
+         <h3 class="font-display text-xl font-semibold text-blue-800 mb-2">Sumber Hukum Pertama</h3>
+         <p class="text-blue-700 leading-relaxed">Proklamasi menjadi sumber hukum pertama dan tertinggi bagi bangsa Indonesia, menjadi dasar bagi pembentukan konstitusi dan peraturan negara.</p>
+        </div>
+       </div>
+      </div><!-- Makna 5 -->
+      <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-2xl p-6 border-l-4 border-purple-600">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl flex-shrink-0">
+         5
+        </div>
+        <div>
+         <h3 class="font-display text-xl font-semibold text-purple-800 mb-2">Titik Awal Mengisi Kemerdekaan</h3>
+         <p class="text-purple-700 leading-relaxed">Proklamasi menjadi titik awal bagi bangsa Indonesia untuk membangun dan mengisi kemerdekaan dengan pembangunan di segala bidang.</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Quote Box -->
+     <div class="mt-10 bg-stone-800 text-white rounded-2xl p-8 text-center"><span class="text-4xl mb-4 block">🇮🇩</span>
+      <blockquote class="font-display text-xl italic mb-4">
+       "Kemerdekaan adalah jembatan emas, di seberang jembatan itulah kita sempurnakan masyarakat kita."
+      </blockquote><cite class="text-stone-400">— Ir. Soekarno</cite>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="bg-stone-800 text-white py-8 px-6 mt-12">
+    <div class="max-w-4xl mx-auto text-center">
+     <p class="text-stone-400 text-sm">©2026 Azam Hidayat</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      main_title: 'Pembacaan Proklamasi Kemerdekaan Indonesia',
+      hero_subtitle: 'Momen bersejarah yang mengubah nasib bangsa Indonesia selamanya',
+      background_color: '#f5f5f4',
+      surface_color: '#ffffff',
+      text_color: '#292524',
+      primary_action_color: '#dc2626',
+      secondary_action_color: '#78716c'
+    };
+
+    let config = { ...defaultConfig };
+
+    // Show section function
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('.section-content').forEach(section => {
+        section.classList.add('hidden');
+      });
+      
+      // Remove active class from all tabs
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('tab-active');
+      });
+      
+      // Show selected section with animation
+      const selectedSection = document.getElementById(sectionId);
+      selectedSection.classList.remove('hidden');
+      selectedSection.classList.add('fade-in');
+      
+      // Add active class to clicked tab
+      const tabs = document.querySelectorAll('.nav-tab');
+      const sectionMap = ['latar', 'peristiwa', 'tokoh', 'teks', 'makna'];
+      const tabIndex = sectionMap.indexOf(sectionId);
+      if (tabIndex !== -1) {
+        tabs[tabIndex].classList.add('tab-active');
+      }
+    }
+
+    // On config change - update UI based on config
+    async function onConfigChange(newConfig) {
+      config = { ...config, ...newConfig };
+      
+      // Update text content
+      const mainTitle = document.getElementById('main-title');
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      
+      if (mainTitle) {
+        mainTitle.textContent = config.main_title || defaultConfig.main_title;
+      }
+      
+      if (heroSubtitle) {
+        heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      }
+    }
+
+    // Map to capabilities for color/font editing
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    // Map to edit panel values
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['main_title', config.main_title || defaultConfig.main_title],
+        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c91d1f015a4b5e4',t:'MTc3MDI4ODM0Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
